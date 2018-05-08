@@ -1,0 +1,55 @@
+---
+title: "Iris Dynamic Regression"
+author: "rucrbser"
+date: "May 8, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Presentation Description
+
+* This presentation is about the **Dynamic Linear Regression** from the iris dataset.
+
+* We bulid a Shiny Applicaiton to dynamically observe the linear regression.
+
+* There are two tabs in this application to show different interactive relationships between different variables.
+
+* We can randomly sample from this dataset different samples to observe variation of the linear regression.
+
+* And surely for fun, there selectively displays the scatter smoothing linear regression model.
+
+
+## Dynamic Linear Regression between Petal
+
+```{r}
+newiris <- iris[sample(dim(iris)[1], 75), ]
+fit <- lm(Petal.Width ~ Petal.Length, data = newiris)
+with(newiris, plot(Petal.Length, Petal.Width, pch = 20, main = "Randomly sample 75 observations"))
+abline(fit, col = "red", lwd = 4)
+```
+
+
+## Dynamic Linear Regression between Sepal
+
+```{r}
+newiris <- iris[sample(dim(iris)[1], 75), ]
+fit <- lm(Sepal.Width ~ Sepal.Length, data = newiris)
+with(newiris, plot(Sepal.Length, Sepal.Width, pch = 20, main = "Randomly sample 75 observations"))
+abline(fit, col = "red", lwd = 4)
+```
+
+
+## The Shiny Application
+
+We can interact with our visualizations to dynamically observe the Linear Regression variation from 
+the Shiny Application [Iris Dynamic Regression](https://rucrbser.shinyapps.io/Iris_Dynamic_Regression/).
+
+
+
+
+
+
